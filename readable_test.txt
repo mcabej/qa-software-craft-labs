@@ -1,0 +1,4 @@
+Empty constructor
+Redundant naming
+Not meaningful names subtract2, subtract3
+Use setup to run repeated code
