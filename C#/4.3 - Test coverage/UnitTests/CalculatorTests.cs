@@ -87,5 +87,25 @@ namespace UnitTests
             var calculator = new Calculator();
             Assert.Throws<DivideByZeroException>(() => calculator.Divide("10,0"));
         }
+
+        [Test]
+        public void checkValidSeperatorIsWorking()
+        {
+            var calculator = new Calculator();
+
+            int result = calculator.Divide("10;5");
+
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void checkValidSeperatorIsNotWorking()
+        {
+            var calculator = new Calculator();
+
+            Assert.Catch(() => calculator.Divide("10;;;5"));
+
+            /*Assert.Throws<FormatException>(() => calculator.Divide("10;;;5"));*/
+        }
     }
 }
