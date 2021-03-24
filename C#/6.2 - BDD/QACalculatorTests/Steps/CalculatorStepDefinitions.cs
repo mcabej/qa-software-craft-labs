@@ -31,6 +31,18 @@ namespace QACalculatorTests.Steps
             myCalc.AddTwoNumber(number1, number2);
         }
 
+        [When("I subtract (.*) and (.*)")]
+        public void WhenISubtractNumber1AndNumber2(int number1, int number2)
+        {
+            myCalc.SubtractTwoNumber(number1, number2);
+        }
+
+        [When("I multiply (.*) and (.*)")]
+        public void WhenIMultiplyNumber1AndNumber2(int number1, int number2)
+        {
+            myCalc.MultiplyTwoNumber(number1, number2);
+        }
+
         [Then("the outcome should be (.*)")]
         public void ThenTheOutcomeShouldBe(int expected)
         {

@@ -3,6 +3,7 @@ using QACalculator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -86,6 +87,42 @@ namespace UnitTests
         {
             var calculator = new Calculator();
             Assert.Throws<DivideByZeroException>(() => calculator.Divide("10,0"));
+        }
+
+        [Test]
+        public void add_emptyString_returnsZero()
+        {
+            var calculator = new Calculator();
+            var result = calculator.Add("");
+
+            Assert.AreEqual(0, result);
+        }
+
+        [Test]
+        public void add_oneNumber_returnsParsed()
+        {
+            var calculator = new Calculator();
+            var result = calculator.Add("21");
+
+            Assert.AreEqual(21, result);
+        }
+
+        [Test]
+        public void add_multipleValues_calculate()
+        {
+            var calculator = new Calculator();
+            var result = calculator.Add("2,3");
+
+            Assert.AreEqual(5, result);
+        }
+
+        [Test]
+        public void add_multipleValues_seperatedByNewLine_calculate()
+        {
+            var calculator = new Calculator();
+            var result = calculator.Add("2\n3");
+
+            Assert.AreEqual(5, result);
         }
     }
 }

@@ -20,6 +20,16 @@ namespace QACalculator
             this.answer = x + y;
         }
 
+        public void SubtractTwoNumber(int x, int y)
+        {
+            this.answer = x - y;
+        }
+
+        public void MultiplyTwoNumber(int x, int y)
+        {
+            this.answer = x * y;
+        }
+
         public int GetResult()
         {
             return this.answer;

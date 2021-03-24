@@ -14,7 +14,7 @@ namespace QACalculator
             char separator = ',';
             // if doesn't contain a comma call this
             if (!n1.Contains(","))
-                separator = Utils.ValidSeperator(n1);    // slows down test
+                separator = Utils.ValidSeperator(n1); // slows down test
             String[] numbers = n1.Split(separator);
             foreach (String number in numbers)
             {
@@ -23,6 +23,7 @@ namespace QACalculator
                     return result;
                 }
             }
+
             result = Utils.ToNumber(numbers[0]) / Utils.ToNumber(numbers[1]);
             return result;
         }
@@ -34,10 +35,12 @@ namespace QACalculator
             foreach (String number in numbers)
             {
                 if (!Utils.IsNumeric(number))
-                {  // check number is valid
+                {
+                    // check number is valid
                     return result;
                 }
             }
+
             result = Utils.ToNumber(numbers[0]) * Utils.ToNumber(numbers[1]);
             return result;
         }
@@ -50,12 +53,31 @@ namespace QACalculator
             foreach (String number in numbers)
             {
                 if (!Utils.IsNumeric(number))
-                {  // check number is valid
+                {
+                    // check number is valid
                     return result;
                 }
             }
+
             result = Utils.ToNumber(numbers[0]) - Utils.ToNumber(numbers[1]);
             return result;
+        }
+
+        public int Add(String n1)
+        {
+            var total = 0;
+
+            if (n1 != string.Empty)
+            {
+                string[] text = n1.Split(',', '\n');
+
+                foreach (var chr in text)
+                {
+                    var num = int.Parse(chr);
+                }
+            }
+
+            return total;
         }
     }
 }
